@@ -1,0 +1,126 @@
+=== PARTE 1: os cinco objetos da secao 6 ===
+Nome:    Ana
+Regime:  CLT
+Bruto:   R$ 3.000,00
+INSS:    R$ 248,60
+IRRF:    R$ 0,00
+FGTS:    R$ 240,00 (deposito do empregador)
+DAS:     R$ 0,00
+Liquido: R$ 2.751,40
+
+Nome:    Bruno
+Regime:  CLT
+Bruto:   R$ 6.000,00
+INSS:    R$ 641,51
+IRRF:    R$ 385,10
+FGTS:    R$ 480,00 (deposito do empregador)
+DAS:     R$ 0,00
+Liquido: R$ 4.973,39
+
+Nome:    Carla
+Regime:  PJ (MEI)
+Bruto:   R$ 6.000,00
+INSS:    R$ 0,00
+IRRF:    R$ 0,00
+FGTS:    R$ 0,00 (deposito do empregador)
+DAS:     R$ 86,05
+Liquido: R$ 5.913,95
+
+Nome:    Daniel
+Regime:  CLT
+Bruto:   R$ 5.250,00
+INSS:    R$ 536,51
+IRRF:    R$ 89,53
+FGTS:    R$ 420,00 (deposito do empregador)
+DAS:     R$ 0,00
+Liquido: R$ 4.623,96
+
+Nome:    Elisa
+Regime:  CLT
+Bruto:   R$ 10.500,00
+INSS:    R$ 988,09
+IRRF:    R$ 1.707,05
+FGTS:    R$ 840,00 (deposito do empregador)
+DAS:     R$ 0,00
+Liquido: R$ 7.804,86
+
+=== Conferencia com a tabela do enunciado ===
+Ana:
+  [PASSOU] bruto | esperado 3.000,00 | obtido 3.000,00
+  [PASSOU] INSS | esperado 248,60 | obtido 248,60
+  [PASSOU] IRRF | esperado 0,00 | obtido 0,00
+  [PASSOU] FGTS | esperado 240,00 | obtido 240,00
+  [PASSOU] DAS | esperado 0,00 | obtido 0,00
+  [PASSOU] liquido | esperado 2.751,40 | obtido 2.751,40
+Bruno:
+  [PASSOU] bruto | esperado 6.000,00 | obtido 6.000,00
+  [PASSOU] INSS | esperado 641,51 | obtido 641,51
+  [PASSOU] IRRF | esperado 385,10 | obtido 385,10
+  [PASSOU] FGTS | esperado 480,00 | obtido 480,00
+  [PASSOU] DAS | esperado 0,00 | obtido 0,00
+  [PASSOU] liquido | esperado 4.973,39 | obtido 4.973,39
+Carla:
+  [PASSOU] bruto | esperado 6.000,00 | obtido 6.000,00
+  [PASSOU] INSS | esperado 0,00 | obtido 0,00
+  [PASSOU] IRRF | esperado 0,00 | obtido 0,00
+  [PASSOU] FGTS | esperado 0,00 | obtido 0,00
+  [PASSOU] DAS | esperado 86,05 | obtido 86,05
+  [PASSOU] liquido | esperado 5.913,95 | obtido 5.913,95
+Elisa:
+  [PASSOU] bruto | esperado 10.500,00 | obtido 10.500,00
+  [PASSOU] INSS | esperado 988,09 | obtido 988,09
+  [PASSOU] IRRF | esperado 1.707,05 | obtido 1.707,05
+  [PASSOU] FGTS | esperado 840,00 | obtido 840,00
+  [PASSOU] DAS | esperado 0,00 | obtido 0,00
+  [PASSOU] liquido | esperado 7.804,86 | obtido 7.804,86
+Daniel:
+  [PASSOU] bruto | esperado 5.250,00 | obtido 5.250,00
+  [PASSOU] INSS | esperado 536,51 | obtido 536,51
+  [PASSOU] IRRF | esperado 89,53 | obtido 89,53
+  [PASSOU] FGTS | esperado 420,00 | obtido 420,00
+  [PASSOU] DAS | esperado 0,00 | obtido 0,00
+  [PASSOU] liquido | esperado 4.623,96 | obtido 4.623,96
+
+=== PARTE 2: testes obrigatorios ===
+Teste 1 - entradas negativas ou nome vazio sao rejeitados:
+  [PASSOU] salario negativo (CLT) | rejeitado: O salario mensal nao pode ser negativo.
+  [PASSOU] valor da hora negativo (PJ) | rejeitado: O valor da hora nao pode ser negativo.
+  [PASSOU] horas negativas (PJ) | rejeitado: A quantidade de horas nao pode ser negativa.
+  [PASSOU] valor da hora-aula negativo (professor) | rejeitado: O valor da hora nao pode ser negativo.
+  [PASSOU] horas semanais negativas (professor) | rejeitado: A quantidade de horas nao pode ser negativa.
+  [PASSOU] nome vazio | rejeitado: O nome deve ser preenchido.
+  [PASSOU] nome nulo | rejeitado: O nome deve ser preenchido.
+Teste 2 - CLT com salario zero: tudo zero:
+Zero:
+  [PASSOU] bruto | esperado 0,00 | obtido 0,00
+  [PASSOU] INSS | esperado 0,00 | obtido 0,00
+  [PASSOU] IRRF | esperado 0,00 | obtido 0,00
+  [PASSOU] FGTS | esperado 0,00 | obtido 0,00
+  [PASSOU] DAS | esperado 0,00 | obtido 0,00
+  [PASSOU] liquido | esperado 0,00 | obtido 0,00
+Teste 3 - PJ com hora 50 e zero horas: DAS continua devido:
+Pedro:
+  [PASSOU] bruto | esperado 0,00 | obtido 0,00
+  [PASSOU] INSS | esperado 0,00 | obtido 0,00
+  [PASSOU] IRRF | esperado 0,00 | obtido 0,00
+  [PASSOU] FGTS | esperado 0,00 | obtido 0,00
+  [PASSOU] DAS | esperado 86,05 | obtido 86,05
+  [PASSOU] liquido | esperado -86,05 | obtido -86,05
+Teste 4 - INSS ate o teto (8.475,55) e constante depois dele:
+  [PASSOU] INSS de 8.000 | esperado 921,51 | obtido 921,51
+  [PASSOU] INSS de 10.500 | esperado 988,09 | obtido 988,09
+  [PASSOU] INSS de 12.000 (igual ao de 10.500) | esperado 988,09 | obtido 988,09
+  Aumento de 8.000 para 10.500: R$ 66,58
+  Aumento de 10.500 para 12.000: R$ 0,00
+Teste 5 - IRRF: isencao em 5.000 e reducao parcial em 6.000:
+  [PASSOU] IRRF de 5.000 (isento pela regra da reducao) | esperado 0,00 | obtido 0,00
+  [PASSOU] IRRF de 6.000 (imposto 564,85 - reducao 179,75) | esperado 385,10 | obtido 385,10
+Teste 6 - calcularLiquido() duas vezes no mesmo objeto:
+  [PASSOU] segunda chamada igual a primeira | esperado 4.973,39 | obtido 4.973,39
+  [PASSOU] bruto nao foi alterado | esperado 6.000,00 | obtido 6.000,00
+Teste 7 - recalcular Ana depois de criar Bruno:
+  [PASSOU] liquido de Ana antes e depois de criar Bruno | esperado 2.751,40 | obtido 2.751,40
+  [PASSOU] liquido de Ana continua 2.751,40 | esperado 2.751,40 | obtido 2.751,40
+  [PASSOU] liquido de Bruno e o dele (4.973,39) | esperado 4.973,39 | obtido 4.973,39
+
+Verificacoes: 59 | Falhas: 0
