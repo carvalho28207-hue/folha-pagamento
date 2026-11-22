@@ -1,7 +1,7 @@
 # Estudo guiado avaliativo — Folha de pagamento em Java
 
 **Professor:** Alexandre Montanha
-**Estudante:** ______________________ **RA:** ______________ **Turma:** ______________
+**Estudante:** Enzo Carvalho de Andrade **RA:** ______________ **Turma:** ______________
 **Data:** 10/11/2026
 
 ## Declaração de uso de IA
